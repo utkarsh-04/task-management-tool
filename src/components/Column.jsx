@@ -83,7 +83,7 @@ export default function Column({ columnId, column, columns, setColumns }) {
         </button>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-2 mt-4">
+      <div className="flex flex-col sm:flex-row gap-2 mt-4 mb-2">
         <input
           type="text"
           value={taskInput}
