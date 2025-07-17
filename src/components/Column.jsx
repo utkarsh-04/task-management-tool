@@ -83,22 +83,25 @@ export default function Column({ columnId, column, columns, setColumns }) {
         </button>
       </div>
 
-      <div className="flex mb-4 gap-2">
+      <div className="flex flex-col sm:flex-row gap-2 mt-4">
         <input
           type="text"
-          className="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-          placeholder="Add a task..."
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
-          onKeyDown={handleKeyPress}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') handleAddTask();
+          }}
+          className="flex-1 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+          placeholder="Add a task..."
         />
         <button
           onClick={handleAddTask}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-all"
         >
           Add
         </button>
       </div>
+
 
       <div className="space-y-2 overflow-y-auto">
         {column.items.map((task) => (
